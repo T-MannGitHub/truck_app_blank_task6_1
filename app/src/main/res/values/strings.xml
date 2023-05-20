@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">truck_app_blank</string>
+    <string name="username">Username</string>
+    <string name="string">Password</string>
+    <string name="login">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
