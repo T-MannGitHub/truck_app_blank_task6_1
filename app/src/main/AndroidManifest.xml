@@ -8,12 +8,21 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher_truck"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_truck_round"
+
         android:supportsRtl="true"
         android:theme="@style/Theme.Truck_app_blank"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

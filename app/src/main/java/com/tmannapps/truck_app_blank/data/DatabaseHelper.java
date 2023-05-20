@@ -18,8 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_USER_TABLE = "CREATE TABLE " + Util.TABLE_NAME + "(" + Util.USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT ,"
-                + Util.USERNAME + "TEXT" + Util.PASSWORD + "TEXT)";
+        String CREATE_USER_TABLE = "CREATE TABLE " + Util.TABLE_NAME + "(" + Util.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ Util.USERNAME + " TEXT," + Util.PASSWORD + " TEXT," + Util.FULL_NAME + " TEXT," + Util.PHONE + " INTEGER)";
 
         db.execSQL(CREATE_USER_TABLE);
 
@@ -29,8 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
             String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + Util.TABLE_NAME; //this is likely wrong, but fixed the error for now.
-            db.execSQL(DROP_USER_TABLE, new String[]{Util.TABLE_NAME});
-
+            //db.execSQL(DROP_USER_TABLE, new String[]{Util.TABLE_NAME});
             onCreate(db);
 
     }
@@ -40,6 +38,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Util.USERNAME, user.getUsername());
         contentValues.put(Util.PASSWORD, user.getPassword());
+        contentValues.put(Util.FULL_NAME, user.getFullname());
+        contentValues.put(Util.PHONE, user.getPhone());
         long newRowId = db.insert(Util.TABLE_NAME, null, contentValues);
         db.close();
         return newRowId;

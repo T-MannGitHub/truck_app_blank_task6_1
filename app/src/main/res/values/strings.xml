@@ -1,9 +1,21 @@
 <resources>
     <string name="app_name">truck_app_blank</string>
     <string name="username">Username</string>
-    <string name="string">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="conf_password">Confirm Password</string>
+    <string name="phone">Phone no:</string>
     <string name="login">LOG IN</string>
     <string name="sign_up">SIGN UP</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="save">Create Account</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
 </resources>
