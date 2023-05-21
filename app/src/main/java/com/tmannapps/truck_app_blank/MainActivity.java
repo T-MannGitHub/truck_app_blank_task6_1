@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper db;
     BroadcastReceiver myBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

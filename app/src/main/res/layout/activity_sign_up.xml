@@ -125,11 +125,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="214dp"
-        android:layout_height="32dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="693dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
