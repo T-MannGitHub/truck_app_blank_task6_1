@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fullNameEditText" />
 
     <EditText
-        android:id="@+id/sPasswrodEditText"
+        android:id="@+id/sPasswordEditText"
         android:layout_width="207dp"
         android:layout_height="56dp"
         android:layout_marginStart="102dp"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sPasswrodEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/sPasswordEditText" />
 
     <Button
         android:id="@+id/saveButton"
@@ -63,10 +63,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneEditTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
 
     <EditText
-        android:id="@+id/phoneEditTextNumber"
+        android:id="@+id/phoneEditText"
         android:layout_width="207dp"
         android:layout_height="56dp"
         android:layout_marginStart="102dp"

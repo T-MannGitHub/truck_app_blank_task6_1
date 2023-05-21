@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,11 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tmannapps.truck_app_blank.data.DatabaseHelper;
 import com.tmannapps.truck_app_blank.databinding.ActivitySignUpBinding;
 import com.tmannapps.truck_app_blank.model.User;
-import com.tmannapps.truck_app_blank.util.Util;
 
 import java.io.File;
 //camera setup and permissions from youtube tutorial- www.youtube.com/watch?v=9XSlbZN1yFg
@@ -39,13 +36,12 @@ public class SignUpActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent){
             Bundle bundle = intent.getExtras();
             String value =  bundle.getString("return_value");
-            //Toast.makeText(SignUpActivity.this, "value "  + value +" ToastText in onReceive from Broadcast receiver", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, "value "  + value +" ToastText in onReceive from Broadcast receiver", Toast.LENGTH_SHORT).show();
         }
     };
 
     @Override
     protected void onResume() {
-
         super.onResume();
         registerReceiver(myBroadcastReceiver, new IntentFilter("com.tmannapps.truck_app_blank.MyIntentService"));
     }
@@ -61,14 +57,6 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
-        EditText sUsernameEditText = findViewById(R.id.sUsernameEditText);
-
-        EditText sPasswordEditText = findViewById(R.id.sPasswrodEditText);
-        EditText fullNameEditText = findViewById(R.id.fullNameEditText);
-        EditText phoneEditText = findViewById(R.id.phoneEditTextNumber);
-        EditText sConfirmPasswordEditText = findViewById(R.id.sConfirmPasswordEditText);
-        Button saveButton = findViewById(R.id.saveButton);
         signUpBinding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(signUpBinding.getRoot());
 
@@ -91,15 +79,16 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
 
-        saveButton.setOnClickListener(v -> {
+        signUpBinding.saveButton.setOnClickListener(v -> {
 
-            String username = sUsernameEditText.getText().toString();
-            String password = sPasswordEditText.getText().toString();
-            String fullname = fullNameEditText.getText().toString();
-            int phone = Integer.parseInt(phoneEditText.getText().toString());
-            String confPassword = sConfirmPasswordEditText.getText().toString();
+            String username = signUpBinding.sUsernameEditText.getText().toString();
+            String password = signUpBinding.sPasswordEditText.getText().toString();
+            String fullname = signUpBinding.fullNameEditText.getText().toString();
+            int phone = Integer.parseInt(signUpBinding.phoneEditText.getText().toString());
+            String confPassword = signUpBinding.sConfirmPasswordEditText.getText().toString();
 
             if (password.equals(confPassword))
+
             {
                 long result = db.insertUser(new User(username, password, fullname, phone));
                 if (result > 0)
