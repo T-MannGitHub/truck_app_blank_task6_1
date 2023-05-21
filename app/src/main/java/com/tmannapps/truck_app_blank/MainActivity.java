@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import com.tmannapps.truck_app_blank.data.DatabaseHelper;
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper db;
+    BroadcastReceiver myBroadcastReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         EditText passwordEditText = findViewById(R.id.editTextPassword);
         Button loginButton = findViewById(R.id.buttonLogIn);
         Button sigupButton= findViewById(R.id.buttonSignUp);
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_CAMERA_BUTTON);
+
+        this.registerReceiver(myBroadcastReceiver, intentFilter);
 
         db = new DatabaseHelper(this);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -48,4 +55,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
