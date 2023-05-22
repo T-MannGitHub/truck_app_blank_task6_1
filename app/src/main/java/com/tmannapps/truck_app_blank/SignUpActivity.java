@@ -7,8 +7,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -36,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent){
             Bundle bundle = intent.getExtras();
             String value =  bundle.getString("return_value");
-            Toast.makeText(SignUpActivity.this, "value "  + value +" ToastText in onReceive from Broadcast receiver", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(SignUpActivity.this, "value "  + value +" ToastText in onReceive from Broadcast receiver", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -59,7 +57,6 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         signUpBinding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(signUpBinding.getRoot());
-
         db = new DatabaseHelper(this);
 
         if (SignUpActivity.this.getPackageManager()
@@ -94,6 +91,8 @@ public class SignUpActivity extends AppCompatActivity {
                 if (result > 0)
                 {
                     Toast.makeText(SignUpActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+                    startActivity(intent);
                 }
                 else
                 {

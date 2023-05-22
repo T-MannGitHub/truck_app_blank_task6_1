@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 boolean result = db.fetchUser(usernameEditText.getText().toString(), passwordEditText.getText().toString());
                 if (result) {
                     Toast.makeText(MainActivity.this, "Successfully logged in!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "The username and password do not match. Please try again or create an account", Toast.LENGTH_SHORT).show();
                 }
