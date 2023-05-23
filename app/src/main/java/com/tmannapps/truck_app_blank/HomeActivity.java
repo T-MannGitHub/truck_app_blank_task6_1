@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.media.Image;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +21,8 @@ public class HomeActivity extends AppCompatActivity {
     TrucksRecyclerViewAdapter trucksRecyclerViewAdapter;
     List<Truck> truckList = new ArrayList<>();
 
+    ImageButton menuButton;
+
     String [] modelList = {"Holden Ute", "Ford Ute", "Honda Mover", "Isuzu Bucket", "MAC Tray", "Caterpillar Crane Loader"};
     String [] typeList = {"Utility vehicle", "Utility vehicle", "Moving truck", "Bucket truck", "Open tray truck", "Crane loader tray truck"};
     String [] capacityList = {"Small", "Small", "Medium", "Medium", "Large", "Large"};
@@ -25,11 +31,12 @@ public class HomeActivity extends AppCompatActivity {
     //images from https://www.freepik.com/free-photos-vectors/cartoon-truck
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        menuButton = findViewById(R.id.imageButtonMenu);
         trucksRecyclerView = findViewById(id.recyclerView);
         trucksRecyclerViewAdapter = new TrucksRecyclerViewAdapter(truckList, this);
         trucksRecyclerView.setAdapter(trucksRecyclerViewAdapter);
@@ -40,4 +47,6 @@ public class HomeActivity extends AppCompatActivity {
             truckList.add(truck);
         }
     }
+
+
 }
